@@ -1,0 +1,471 @@
+/* Tokens de tinta e papel. Tudo em mm/pt para o PDF sair igual em qualquer máquina. */
+:root {
+  --papel: #faf7f3;
+  --tinta: #2a2521;
+  --tinta-fraca: #5c5249;
+  --muted: #6b6058;
+  --linha: #e2d8cc;
+  --acento: #9c5b3f;
+  --fonte-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --fonte-texto: "Avenir Next", Inter, "Helvetica Neue", Arial, sans-serif;
+  --margem: 18mm;
+  --vao: 8mm;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #e9e4dd;
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Cada folha é uma página A4 de verdade. Sem isso, o Chrome imprime com margem
+   padrão e cada folha vira duas. */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+.folha {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  padding: var(--margem);
+  background: var(--papel);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+
+.folha:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+@media screen {
+  body {
+    padding: 10mm 0;
+  }
+  .folha {
+    margin: 0 auto 8mm;
+    box-shadow: 0 2mm 6mm rgba(42, 37, 33, 0.12);
+  }
+}
+
+@media print {
+  html,
+  body {
+    background: none;
+  }
+}
+
+/* Cabeçalho e rodapé das páginas internas */
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 3mm;
+  border-bottom: 0.3mm solid var(--linha);
+  font-size: 7pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.conteudo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vao);
+  padding-top: 8mm;
+  overflow: hidden;
+}
+
+.conteudo.centralizado {
+  justify-content: center;
+}
+
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 3mm;
+  border-top: 0.3mm solid var(--linha);
+  font-size: 7pt;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+/* Capa */
+.capa {
+  justify-content: space-between;
+}
+
+.capa .marca {
+  font-size: 9pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+
+.capa h1 {
+  font-family: var(--fonte-display);
+  font-weight: 400;
+  font-size: 46pt;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.capa h2 {
+  font-family: var(--fonte-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 16pt;
+  margin: 4mm 0 0;
+  color: var(--tinta-fraca);
+}
+
+.capa .traco {
+  width: 42mm;
+  height: 0.6mm;
+  background: var(--acento);
+  margin: 10mm 0;
+}
+
+.capa .ano {
+  font-size: 8pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.capa .assinatura {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 8pt;
+  color: var(--tinta-fraca);
+}
+
+/* Ornamento da capa: dois círculos e um quarto preenchido, saindo pela borda */
+.capa .ornamento {
+  position: absolute;
+  right: -60mm;
+  top: 38mm;
+  width: 144mm;
+  height: 144mm;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.capa .ornamento svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Página de abertura */
+.abertura {
+  justify-content: flex-end;
+}
+
+.abertura .conteudo {
+  justify-content: flex-end;
+  padding-bottom: 34mm;
+  padding-top: 0;
+}
+
+.abertura .texto {
+  max-width: 128mm;
+}
+
+.abertura .texto p {
+  font-family: var(--fonte-display);
+  font-size: 15pt;
+  line-height: 1.55;
+  margin: 0 0 6mm;
+}
+
+.abertura .texto .legenda {
+  font-family: var(--fonte-texto);
+  font-size: 8pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--acento);
+  margin-bottom: 4mm;
+}
+
+/* Linha de produtos: duas colunas com altura medida */
+.linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--vao);
+  align-items: start;
+}
+
+.linha.unica {
+  grid-template-columns: 1fr;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  break-inside: avoid;
+}
+
+.card .foto {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #efe8df;
+  overflow: hidden;
+}
+
+.card .foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card .foto.vazia {
+  border: 0.3mm dashed #cfc2b3;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.card .info {
+  padding-top: 3mm;
+}
+
+.card .categoria {
+  display: block;
+  font-size: 6.5pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--acento);
+  margin-bottom: 1.5mm;
+}
+
+.card h3 {
+  font-family: var(--fonte-display);
+  font-weight: 400;
+  font-size: 14pt;
+  line-height: 1.15;
+  margin: 0 0 2mm;
+}
+
+.card .desc {
+  font-size: 8.2pt;
+  line-height: 1.45;
+  color: var(--tinta-fraca);
+  margin: 0 0 3mm;
+}
+
+.card .ficha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2mm 4mm;
+  margin: 0 0 3mm;
+}
+
+.card .ficha dt {
+  font-size: 6.2pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.8mm;
+}
+
+.card .ficha dd {
+  font-size: 8pt;
+  margin: 0;
+  color: var(--tinta);
+}
+
+.card .base {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 4mm;
+  padding-top: 2.5mm;
+  border-top: 0.25mm solid var(--linha);
+}
+
+.cores {
+  display: flex;
+  gap: 1.6mm;
+}
+
+.cores span {
+  width: 3.6mm;
+  height: 3.6mm;
+  border-radius: 50%;
+  border: 0.2mm solid rgba(42, 37, 33, 0.18);
+}
+
+.precos {
+  text-align: right;
+}
+
+.precos strong {
+  display: block;
+  font-family: var(--fonte-display);
+  font-weight: 400;
+  font-size: 12pt;
+}
+
+.precos span {
+  font-size: 7pt;
+  color: var(--muted);
+}
+
+/* Card largo: vira destaque de largura total quando sobra um item na linha */
+.card.largo {
+  display: flex;
+  flex-direction: column;
+}
+
+.card.largo .foto {
+  aspect-ratio: 16 / 9;
+}
+
+.card.largo .info {
+  padding-top: 4mm;
+  max-width: 150mm;
+}
+
+/* Modo página única longa */
+.folha.unica {
+  height: auto;
+  min-height: 297mm;
+}
+
+.folha.unica .conteudo {
+  overflow: visible;
+  padding-top: 0;
+}
+
+.abertura-unica {
+  padding-bottom: 10mm;
+  margin-bottom: 12mm;
+  border-bottom: 0.3mm solid var(--linha);
+}
+
+.abertura-unica .marca {
+  font-size: 8pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--acento);
+  margin-bottom: 6mm;
+}
+
+.abertura-unica h1 {
+  font-family: var(--fonte-display);
+  font-weight: 400;
+  font-size: 34pt;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.abertura-unica h2 {
+  font-family: var(--fonte-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 15pt;
+  color: var(--tinta-fraca);
+  margin: 3mm 0 0;
+}
+
+.abertura-unica .traco {
+  width: 42mm;
+  height: 0.6mm;
+  background: var(--acento);
+  margin: 7mm 0;
+}
+
+.abertura-unica .intro {
+  max-width: 132mm;
+  font-family: var(--fonte-display);
+  font-size: 13pt;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--vao);
+  align-items: start;
+}
+
+/* Fecho: bloco de atendimento que fecha a última página */
+.fecho {
+  margin-top: 6mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8mm;
+  padding-top: 6mm;
+  border-top: 0.3mm solid var(--linha);
+}
+
+.fecho .titulo {
+  font-family: var(--fonte-display);
+  font-size: 12pt;
+}
+
+.fecho .dados {
+  display: flex;
+  gap: 8mm;
+  font-size: 8pt;
+  color: var(--tinta-fraca);
+}
+
+/* Medidor invisível: mesma largura útil da página */
+#medidor {
+  position: absolute;
+  left: -10000px;
+  top: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@media print {
+  #medidor {
+    display: none;
+  }
+}
+
+/* Pré-visualização de uma página só, para captura de tela */
+body.pagina-unica {
+  padding: 0;
+  background: none;
+}
+
+body.pagina-unica .folha {
+  display: none;
+}
+
+body.pagina-unica .folha.visivel {
+  display: flex;
+  margin: 0;
+  box-shadow: none;
+}

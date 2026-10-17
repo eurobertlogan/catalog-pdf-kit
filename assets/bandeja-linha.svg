@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img">
+  <rect width="1200" height="900" fill="#efeae6"/>
+  
+      <path d="M400 720 L400 430 A200 200 0 0 1 800 430 L800 720 Z" fill="#8a6a4f" opacity="0.45"/>
+      <circle cx="600" cy="520" r="90" fill="#2a2521" opacity="0.9"/>
+  <text x="64" y="836" font-family="Georgia, 'Times New Roman', serif" font-size="30"
+    fill="#2a2521" opacity="0.45">Bandeja Linha</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img">
+  <rect width="1200" height="900" fill="#e1e0e0"/>
+  
+    <rect x="380" y="250" width="440" height="440" rx="40" fill="#2a2521" opacity="0.4"
+      transform="rotate(-6 600 470)"/>
+    <ellipse cx="600" cy="620" rx="220" ry="60" fill="#c9b8a6" opacity="0.85"/>
+  <text x="64" y="836" font-family="Georgia, 'Times New Roman', serif" font-size="30"
+    fill="#2a2521" opacity="0.45">Jarra Vertente</text>
+</svg>

@@ -1,0 +1,8 @@
+node_modules/
+out/
+data/dados.js
+src/.unico.html
+*.log
+.DS_Store
+.idea/
+.vscode/

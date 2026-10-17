@@ -1,0 +1,14 @@
+id,nome,categoria,descricao,composicao,medida,preco_vista,parcelas,parcela_valor,cores,foto
+01,Travessa Aurora,Mesa,"Travessa rasa de borda ondulada, para servir à mesa ou compor um aparador.",Cerâmica esmaltada,38 cm de diâmetro,189.00,3,63.00,#9c5b3f;#e8d5c4,travessa-aurora.svg
+02,Jarra Vertente,Mesa,"Jarra de boca larga com alça lateral, pensada para água e sucos.",Cerâmica esmaltada,"1,8 L de capacidade",149.00,3,49.67,#2a2521;#c9b8a6,jarra-vertente.svg
+03,Prato Fundo Serra,Mesa,"Prato fundo de aba alta, para caldos e massas curtas.",Cerâmica esmaltada,23 cm de diâmetro,79.00,2,39.50,#e8d5c4;#9c5b3f,prato-serra.svg
+04,Tábua Fio,Cozinha,"Tábua de corte com sulco perimetral que retém o líquido do alimento.",Madeira maciça,42 x 28 cm,219.00,3,73.00,#8a6a4f,
+05,Panela Barro,Cozinha,"Panela de barro com tampa e alças laterais, para cozimento lento.",Cerâmica refratária,"3,5 L de capacidade",259.00,4,64.75,#9c5b3f;#5c4636,panela-barro.svg
+06,Moringa Cônica,Cozinha,"Moringa de funil cônico e tampa de rolha, para água na mesa.",Cerâmica esmaltada,"1,2 L de capacidade",129.00,3,43.00,#dfe6e3;#2a2521,moringa-conica.svg
+07,Bandeja Linha,Sala,"Bandeja de borda reta para apoiar garrafas, copos e objetos pequenos.",Madeira maciça,50 x 32 cm,169.00,3,56.33,#8a6a4f,bandeja-linha.svg
+08,Luminária Fenda,Sala,"Luminária de mesa com corpo cilíndrico e fenda lateral que desenha a luz.",Cerâmica e metal,32 cm de altura,289.00,4,72.25,#2a2521;#c9b8a6,luminaria-fenda.svg
+09,Vaso Coluna,Sala,"Vaso alto de pescoço estreito, para galhos secos e arranjos altos.",Cerâmica esmaltada,45 cm de altura,199.00,3,66.33,#9c5b3f;#e8d5c4,vaso-coluna.svg
+10,Conjunto Mesa Posta,Mesa,"Conjunto com quatro pratos rasos e quatro copos, para quatro lugares.",Cerâmica e vidro,26 cm e 300 ml,459.00,5,91.80,#e8d5c4;#9c5b3f,conjunto-mesa.svg
+11,Suporte Utensílios,Cozinha,"Suporte de parede com três ganchos, para utensílios de uso frequente.",Metal pintado,40 x 12 cm,89.00,2,44.50,#2a2521,suporte-utensilios.svg
+12,Dupla de Xícaras,Mesa,"Par de xícaras de parede fina com pires, para café coado.",Cerâmica esmaltada,90 ml cada,119.00,2,59.50,#dfe6e3;#9c5b3f,xicaras-dupla.svg
+13,Espelho Borda,Sala,"Espelho de parede com moldura fina e fixação oculta.",Vidro e metal,60 x 80 cm,349.00,4,87.25,#2a2521;#c9b8a6,espelho-borda.svg

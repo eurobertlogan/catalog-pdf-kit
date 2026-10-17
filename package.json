@@ -1,0 +1,18 @@
+{
+  "name": "catalog-pdf-kit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A4 catalog PDF from a CSV and a folder of images, built with HTML, CSS and Chrome headless.",
+  "type": "module",
+  "license": "MIT",
+  "author": "https://robertlogan.cc",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:single": "node scripts/build.mjs --single",
+    "shots": "node scripts/build.mjs --shots",
+    "images": "node scripts/gen-images.mjs"
+  }
+}
